@@ -1,0 +1,201 @@
+<HTML>
+<HEAD>
+<TITLE>Radio Button Test</TITLE>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<SCRIPT LANGUAGE="JavaScript">
+var score = 0;
+$(document).ready(function(){
+  $("#test1").hide();
+  $("#test2").hide();
+  $("#test3").hide();
+  $("#test4").hide();
+    $("#start").click(function(){
+        $("#test1").show();
+        score = 0;
+        document.getElementById("Finalscore").innerHTML = score;
+    });
+});
+function ques1 (form){
+  for(var i = 0; i < 4; i++){
+    if (form.easy1[i].checked){
+        if(form.easy1[i].value == "32"){
+          score = score + 10;
+          console.log(score)
+          document.getElementById("Finalscore").innerHTML = score;
+        }
+    }
+  }
+  $("#test1").hide();
+  $("#test2").show();
+  //alert ("Button " + Count + " is selected");
+}
+function ques2 (form){
+  for(var i = 0; i < 4; i++){
+    if (form.easy2[i].checked){
+        if(form.easy2[i].value == "49"){
+          score = score + 10;
+          console.log(score)
+          document.getElementById("Finalscore").innerHTML = score;
+        }
+    }
+  }
+  $("#test2").hide();
+  $("#test3").show();
+  //alert ("Button " + Count + " is selected");
+}
+function ques3 (form){
+  for(var i = 0; i < 4; i++){
+    if (form.easy3[i].checked){
+        if(form.easy3[i].value == "32"){
+          score = score + 10;
+          console.log(score)
+            document.getElementById("Finalscore").innerHTML = score;
+        }
+    }
+  }
+  $("#test3").hide();
+  $("#test4").show();
+  //alert ("Button " + Count + " is selected");
+}
+function ques4 (form){
+  for(var i = 0; i < 4; i++){
+    if (form.easy4[i].checked){
+        if(form.easy4[i].value == "72"){
+          score = score + 10;
+          console.log(score)
+            document.getElementById("Finalscore").innerHTML = score;
+        }
+    }
+  }
+  $("#test1").hide();
+  $("#test2").hide();
+  $("#test3").hide();
+  $("#test4").hide();
+  document.getElementById("Finalscore").innerHTML = score;
+  //alert ("Button " + Count + " is selected");
+}
+console.log(score)
+</SCRIPT>
+<style>
+#title {
+position:fixed;
+bottom: 0px;
+right: 10px;
+width: 300px;
+padding: 10px 20px;
+color: rgb(247, 222, 165);
+background-color: #102C4E;
+border-radius: 20px;
+font-size: 24px;
+font-family: sans-serif;
+font-variant: small-caps;
+text-align: center;
+text-shadow: 4px 4px 5px rgba(255, 255 , 255, 1); }
+
+.buttonList{
+  position: fixed; /* or absolute */
+ top: 25%;
+ left: 45%;
+ margin: 0px;
+ padding: 0px;
+}
+.buttonList li{
+  list-style: none;
+
+}
+
+
+.button{
+  background: red;
+  color: white;
+  font-size:14px;
+  font-weight:400;
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+}
+.button1 {
+    background-color: purple;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+h1 {
+   position: absolute;
+   // color: yellow;
+   top: -10px;
+   left: 250px;
+   width: 100%;
+   font: bold 70px/70px Helvetica, Sans-Serif;
+   text-shadow: -14px 3px 29px #01060C;*/
+   color:#fff;
+background-color:#232323;
+text-shadow:0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #49ff18, 0 0 30px #49ff18, 0 0 40px #49ff18, 0 0 55px #49ff18, 0 0 75px #49ff18;
+}
+</style>
+<BODY bgcolor="crecent">
+  <div class="form-group">
+
+    <h2><span>ADVANCE MODE</span><h2>
+
+<button id="start" class="btn btn-success"> Start</button>
+<div id="test1">
+<FORM>
+    <p>A.  8 x 4 </p>
+    <input type="radio" name="easy1" value="32"> 32<br>
+    <input type="radio" name="easy1" value="15"> 15<br>
+    <input type="radio" name="easy1" value="20"> 20 <br>
+    <input type="radio" name="easy1" value="08"> 08 <br>
+  <INPUT TYPE="button" NAME="button" class="btn btn-success" Value="Submit"
+      onClick="ques1(this.form)"> <BR>
+</FORM>
+</div>
+<div id="test2">
+<FORM>
+    <p>B.  7 x 7 </p>
+    <input type="radio" name="easy2" value="08"> 08<br>
+    <input type="radio" name="easy2" value="49"> 49<br>
+    <input type="radio" name="easy2" value="10"> 10 <br>
+    <input type="radio" name="easy2" value="16"> 16 <br>
+  <INPUT TYPE="button" NAME="button" class="btn btn-success" Value="Next"
+      onClick="ques2(this.form)"> <BR>
+</FORM>
+</div>
+<div id="test3">
+<FORM id="testform">
+    <p>C.  8 x 4 </p>
+    <input type="radio" name="easy3" value="21"> 21<br>
+    <input type="radio" name="easy3" value="15"> 15<br>
+    <input type="radio" name="easy3" value="20"> 32 <br>
+    <input type="radio" name="easy3" value="13"> 13 <br>
+  <INPUT TYPE="button" NAME="button" class="btn btn-success" Value="Next"
+      onClick="ques3(this.form)"> <BR>
+</FORM>
+</div>
+<div id="test4">
+<FORM id="testform">
+    <p>D.  4 x 5 </p>
+    <input type="radio" name="easy4" value="10"> 10<br>
+    <input type="radio" name="easy4" value="15"> 15<br>
+    <input type="radio" name="easy4" value="20"> 20 <br>
+    <input type="radio" name="easy4" value="13"> 13 <br>
+  <INPUT TYPE="button" NAME="button" class="btn btn-success" Value="Next"
+        onClick="ques4(this.form)"> <BR>
+</FORM>
+</div>
+<p>Score: <div id="Finalscore"></div></p>
+<li class="btn btn-info"  onclick="location.href='home.html'" style="width:120px; height:30px;">HOME</li>
+<br> <br>
+<li class="btn btn-info" onclick="location.href='levels.html'" style="width:120px; height:30px;">LEVELS</li>
+</body>
+</HTML>

@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <style type="text/css">
+      body {
+      background-color: #4BE4E4;
+      }
+      .buildings {
+      background-image: url('images/skyline2.png');
+      width: 2000px;
+      height: 450px;
+      position: relative;
+      }
+      .light {
+      width: 10px;
+      height: 10px;
+      background-color: yellow;
+      position: absolute;
+      top: 170px;
+      left: 440px;
+      border-radius: 4px;
+      animation-name: lightFlashing;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      }
+      @keyframes lightFlashing {
+      0% {
+      background-color: yellow;
+      }
+      50% {
+      background-color: black;
+      }
+      100% {
+      background-color: yellow;
+      }
+      }
+      .truck {
+      background-image: url('images/truck_black.png');
+      background-size: 128px 128px;
+      width: 128px;
+      height: 128px;
+      animation-name: truckMoving;
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      position: absolute;
+      left: -128px;
+      }
+      @keyframes truckMoving {
+      0% {
+      left: -128px;
+      }
+      100% {
+      left: 100vw;
+      }
+      }
+      .car {
+      background-image: url('images/car_black.png');
+      background-size: 96px 96px;
+      width: 96px;
+      height: 96px;
+      animation-name: carMoving;
+      animation-duration: 8s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      position: absolute;
+      top: 440px;
+      left: 100vw;
+      }
+      @keyframes carMoving {
+      0% {
+      left: 100vw;
+      }
+      100% {
+      left: -128px;
+      }
+      }
+      .snow1{
+      background-image: url('images/s2.png');
+      width: 100%;
+      height: 100%;
+      position:absolute;
+      top: -50px;
+      left: -50px;
+      animation-name: snowfalling1;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      }
+      @keyframes snowfalling1 {
+      0% {
+      top: -50px;
+      left: -50px;
+      }
+      100% {
+      top: 50px;
+      left: 50px;
+      }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buildings">
+      <div class="light"></div>
+    </div>
+    <div class= "truck"></div>
+    <div class= "car"></div>
+    <div class= "snow1"></div>
+    </div>
+  </body>
+</html>

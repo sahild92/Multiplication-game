@@ -1,0 +1,124 @@
+<html>
+<head>
+  <meta name='viewport' content = 'width = device-width, initial-scale = 1.0, user-scalable = no'/>
+  <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="introtoapps-april28.min.js"></script>
+  <script type="text/javascript" src="introtoapps.min.js"></script>
+
+
+  <script type="text/javascript">
+  var duckNumber = 1;
+function adjustGame() {
+
+  console.log("Width :" + $(window).width());
+  console.log("Height :" + $(window).height());
+
+  if ($(window).width() < $(window).height()) {
+    console.log("Portrait mode");
+  } else {
+    console.log("Landscape mode");
+  }
+  var availableHeight = ($(window).height()-200);
+  var availableWidth = $(window).width();
+
+  var deviceFrogHeight = Math.floor(availableHeight / 5);
+  var scale = deviceFrogHeight / 71;
+  $(".frog").css("transform","scale("+scale+")");
+  $(".frog").each(function() {
+    //console.log("Position:" + $(this).position().top + " , " + $(this).position().left);
+    var x = $(this).position().left;
+    if (x >= (availableWidth-50)) {
+      $(this).css("left", (availableWidth-50) + "px");
+    }
+  });
+}
+  $(document).ready(function() {
+    $( window ).resize(function() {
+      console.log("resized");
+      adjustGame();
+
+
+    });
+    var availableHeight = ($(window).height()-200);
+    var maxFrogs = Math.floor( availableHeight / 100 );
+    console.log("Max frogs: " + maxFrogs);
+    var deviceFrogHeight = Math.floor(availableHeight / 5);
+        for (var i=1; i<=5; i++) {
+
+          var x= i * deviceFrogHeight;
+          var scale = deviceFrogHeight / 71;
+          $("body").append("<div class='frog' style='top: " + x + "px; transform:scale("+scale+");'></div>");
+        }
+
+      $(".frog").moveTo(90);
+      $(".frog").speed(0.4);
+      $(".frog").autoBounceOff(true);
+      $(".frog").onCollision(function(otherObject) {
+         if (otherObject.hasClass("duck")) {
+        $(this).remove();
+  }
+        });
+
+$("body").onTap(function(event) {
+  $("body").append("<div id='duck"+ duckNumber + "' class= 'duck'></div>");
+  $("#duck" + duckNumber).moveTo(0);
+  $("#duck" + duckNumber).speed(0.3);
+  $("#duck" + duckNumber).css("bottom", "0px");
+  $("#duck" + duckNumber).css("left", event.clientX + "px");
+  duckNumber++;
+});
+
+  });
+
+  </script>
+  <style type="text/css">
+  .frog {
+    background-image:url('images/frog.png');
+    background-size: 50px 71px;
+    width: 50px;
+    height: 71px;
+    position: absolute;
+    z-index: 10;
+
+  }
+
+  #leftwall {
+    position: absolute;
+    z-index: 10;
+    width: 10px;
+    background-color: black;
+    height: 100vh;
+    top: 0px;
+    left: 0px; /*full lenght of vertical height */
+  }
+  #rightwall{
+    position: absolute;
+    z-index: 10;
+    width: 10px;
+    background-color: black;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
+  }
+.duck {
+  background-image: url('images/duck.png');
+  background-size: 140px 135px;
+  width:140px;
+  height:135px;
+  z-index: 10;
+  position: absolute;
+}
+  </style>
+  </head>
+  <body>
+
+<div id= 'leftwall'></div>
+<div id= 'rightwall'></div>
+
+
+
+
+
+  </body>
+
+  </html>

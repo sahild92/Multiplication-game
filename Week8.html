@@ -1,0 +1,86 @@
+<html>
+<head>
+  <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="introtoapps-april28.min.js"></script>
+
+  <script type="text/javascript">
+  var duckNumber = 1;
+
+  $(document).ready(function() {
+
+      for (var i=1; i<=5; i++) {
+        var x= i * 100;
+        $("body").append("<div class='frog' style='top: " + x + "px'></div>");
+      }
+
+    $(".frog").moveTo(90);
+    $(".frog").speed(0.4);
+    $(".frog").autoBounceOff(true);
+    $(".frog").onCollision(function(otherObject) {
+       if (otherObject.hasClass("duck")) {
+      $(this).remove();
+
+      }
+    });
+
+$("body").onTap(function(event) {
+  $("body").append("<div id='duck"+ duckNumber + "' class= 'duck'></div>");
+  $("#duck" + duckNumber).moveTo(0);
+  $("#duck" + duckNumber).speed(0.3);
+  $("#duck" + duckNumber).css("bottom", "0px");
+  $("#duck" + duckNumber).css("left", event.clientX + "px");
+  duckNumber++;
+})
+  });
+
+  </script>
+  <style type="text/css">
+  .frog {
+    background-image:url('images/frog.png');
+    background-size: 50px 71px;
+    width: 50px;
+    height: 71px;
+    position: absolute;
+    z-index: 10;
+  }
+
+  #leftwall {
+    position: absolute;
+    z-index: 10;
+    width: 10px;
+    background-color: black;
+    height: 100vh;
+    top: 0px;
+    left: 0px; /*full lenght of vertical height */
+  }
+  #rightwall{
+    position: absolute;
+    z-index: 10;
+    width: 10px;
+    background-color: black;
+    height: 100vh;
+    top: 0px;
+    right: 0px;
+  }
+.duck {
+  background-image: url('images/duck.png');
+  background-size: 140px 135px;
+  width:140px;
+  height:135px;
+  z-index: 10;
+  position: absolute;
+}
+  </style>
+  </head>
+  <body>
+<div class= 'frog'></div>
+<div id= 'leftwall'></div>
+<div id= 'rightwall'></div>
+
+
+
+
+
+  </body>
+
+  </html>

@@ -1,0 +1,113 @@
+<html>
+<head>
+  <script type="text/javascript" src="jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="introtoapps.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#frog").moveTo(180);
+      $("#frog").speed(0.3);
+      $("#frog").autoBounceOff(true);
+
+   $("#buttonAddDuck").onTap(function() {
+     $("body").append("<div class='duck'></div>");
+     $(".duck").moveTo(270);
+     $(".duck").speed(0.3);
+
+     $(".duck").onCollision(function(otherObject) {
+       $(".duck").remove();
+       console.log("collision!  yay!");
+
+     });
+    });
+
+});
+
+  </script>
+
+  <style type="text/css">
+  body {
+    background-color: #4242FF;
+  }
+  #title {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 260px;
+    padding: 10px 20px;
+    color: #4242FF;
+    background-color: #44BFEF;
+    border-radius: 20px;
+    font-size: 24px;
+    font-family:sans-serif;
+    font-variant: small-caps;
+    text-align: center;
+    text-shadow: 4px 4px 5px rgba(255, 255, 255, 1);
+  }
+  .log{
+    background-image: url('images/log.png');
+    background-size: 150px 52px;
+    width: 150px;
+    height: 52px;
+    position: fixed;
+    left:50px;
+    z-index: 10;
+  }
+  #toplog {
+
+    top: 50px;
+
+  }
+  #bottomlog {
+
+    top: 350px;
+
+  }
+  #frog
+  {
+    background-image: url('images/frog.png');
+    background-size: 50px 71px;
+    width: 50px;
+    height: 71px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 10;
+  }
+  #buttonAddDuck {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    width: 160px;
+    padding: 10px 20px;
+    color: #4242FF;
+    background-color: #44BFEF;
+    border-radius: 20px;
+    font-size: 14px;
+    font-family:sans-serif;
+    text-align: center;
+    cursor: pointer;
+
+  }
+ .duck {
+    background-image: url('images/duck.png');
+    background-size: 140px 135px;
+    width: 140px;
+    height: 135px;
+    position: fixed;
+    top: 160px;
+    right: 10px;  /*get of the screen */
+    z-index: 10;
+}
+
+  </style>
+</head>
+<body>
+<div id= 'title'> Sahil's Duck Game</div>
+<div id='toplog' class="log"></div>
+<div id='bottomlog' class="log"></div>
+<div id='frog'></div>
+<div id='buttonAddDuck'> Add a Duck </div>
+<div class='duck'></div>
+</body>
+</html>
